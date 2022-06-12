@@ -41,29 +41,37 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="shop-grid">
                                         <div class="row mb-n-30px">
-                                            <div class="col-md-4 col-lg-4 col-xl-3 col-6 mb-30px" data-aos="fade-up" data-aos-delay="200">
-                                                <!-- Single Product -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="/images/product-image/Bag_Backpack _S02-522LAP-01_black_front.jpg" alt="Product" />
-                                                            <img class="hover-image" src="images/product-image/Bag_Backpack _S02-522LAP-012_navy blue_front.jpg" alt="Product" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="content">
-                                                        <span class="category"><a href="#">Backpack</a></span>
-                                                        <h5 class="title"><a href="single-product.html">S02-522LAP Backpack</a></h5>
-                                                        <span class="price">
-                                                            <span class="new">From RM 89.00</span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="actions">
-                                                        <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                        <button class="action quickview" ><i class="fa fa-edit"></i></button>
-                                                        <button class="action quickview" ><i class="fa fa-trash"></i></button>
+                                            @foreach ($myproduct as $product)
+                                                <div class="col-md-4 col-lg-4 col-xl-3 col-6 mb-30px" data-aos="fade-up" data-aos-delay="200">
+                                                    <!-- Single Product -->
+                                                    <div class="product">
+                                                        <div class="thumb">
+                                                            <a href="/showProduct" class="image">
+                                                                <img src="{{ $product->image }}" alt="Product" />
+                                                                <img class="hover-image" src="{{ $product->imagehover }}" alt="Product" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="content">
+                                                            <span class="category"><a href="/showProduc">{{ $product->category }}</a></span>
+                                                            <h5 class="title"><a href="/showProduct">{{ $product->name }}</a></h5>
+                                                            <span class="price">
+                                                                <span class="new">From {{ $product->price }}</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="actions">
+                                                            <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
+                                                            <button class="action quickview" ><i class="fa fa-edit"></i></button>
+
+                                                            <form class="action quickview" method="post" action="/delete">
+                                                                {{csrf_field()}}
+                                                                <input type="hidden" value="{{ $product->sku }}" name="sku"></input>
+                                                                <button type="submit" class="action"><i class="fa fa-trash"></i></button>
+                                                            </form>
+                                                            <!-- <button class="action quickview" ><i class="fa fa-trash"></i></button> -->
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>

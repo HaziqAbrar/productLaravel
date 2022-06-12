@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Product extends Migration
+class Products extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class Product extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->text('image')->nullable($value = true);
             $table->text('imagehover')->nullable($value = true);
             $table->text('gallery')->nullable($value = true);
             $table->string('name');
-            $table->double('price');
+            $table->double('price' 8, 2);
             $table->enum('category',['Bag','Gadget','Trophy','Towel','Packaging']);
             $table->string('sku')->unique();
             $table->enum('tags',['Best Buy','Interim'])->nullable($value = true);

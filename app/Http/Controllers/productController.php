@@ -15,7 +15,7 @@ class productController extends Controller
     public function index()
     {
         //
-        $myproduct = product::all();
+        $myproduct = Product::all();
         return view('index', compact('myproduct'));
     }
 
@@ -80,8 +80,13 @@ class productController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Request $request)
     {
         //
+
+        // dd($request->sku);
+        Product::where('sku', $request->sku)->delete();
+        return redirect('/home');
+
     }
 }
