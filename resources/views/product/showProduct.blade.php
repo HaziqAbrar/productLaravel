@@ -11,32 +11,14 @@
                     <div class="swiper-container zoom-top">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_front.jpg" alt="">
-                                <a class="venobox full-preview" data-gall="myGallery" href="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_front.jpg">
+                                <img class="img-responsive m-auto" src="/{{$product->image}}" alt="">
+                                <a class="venobox full-preview" data-gall="myGallery" href="{{$product->image}}">
                                     <i class="fa fa-arrows-alt" aria-hidden="true"></i>
                                 </a>
                             </div>
                             <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_back.jpg" alt="">
-                                <a class="venobox full-preview" data-gall="myGallery" href="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_back.jpg">
-                                    <i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_side.jpg" alt="">
-                                <a class="venobox full-preview" data-gall="myGallery" href="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_side.jpg">
-                                    <i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_laptop compartment.jpg" alt="">
-                                <a class="venobox full-preview" data-gall="myGallery" href="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_laptop compartment.jpg">
-                                    <i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_top compartment.jpg" alt="">
-                                <a class="venobox full-preview" data-gall="myGallery" href="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_top compartment.jpg">
+                                <img class="img-responsive m-auto" src="/{{$product->imagehover}}" alt="">
+                                <a class="venobox full-preview" data-gall="myGallery" href="{{$product->imagehover}}">
                                     <i class="fa fa-arrows-alt" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -45,19 +27,10 @@
                     <div class="swiper-container mt-20px zoom-thumbs slider-nav-style-1 small-nav">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_front.jpg" alt="">
+                                <img class="img-responsive m-auto" src="/{{$product->image}}" alt="">
                             </div>
                             <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_back.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_side.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_laptop compartment.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="assets/images/product-image/Bag_Backpack _S02-522LAP-01_black_top compartment.jpg" alt="">
+                                <img class="img-responsive m-auto" src="/{{$product->imagehover}}" alt="">
                             </div>
                         </div>
                         <!-- Add Arrows -->
@@ -69,23 +42,20 @@
                 </div>
                 <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
                     <div class="product-details-content quickview-content ml-25px">
-                        <h2>S02-522LAP BACKPACK</h2>
+                        <h2>{{$product->name}}</h2>
                         <div class="pricing-meta">
                             <ul class="d-flex">
-                                <li class="new-price">From RM 89.00</li>
+                                <li class="new-price">From RM {{$product->price}}</li>
                             </ul>
                         </div>
-                        <p>For Work & Play. A front compartment gives you quick access to frequently used items. 
-                        The main compartment comes complete with a padded laptop sleeve while organised pockets keeps your work gear tidy. 
-                        There is a concealed bottle holder on the side of the bag, as well as a robust grab handle for ergonomic travel carry. 
-                        Padded shoulder straps and a cushioned back support provides for a comfortable carry experience.</p>
+                        <p>{{$product->description}}</p>
                         <div class="pro-details-color-size d-flex">
                         </div>
                         <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
                             <span>SKU:</span>
                             <ul class="d-flex">
                                 <li>
-                                    <a href="#">S02-522LAP</a>
+                                    <a href="#">{{$product->sku}}</a>
                                 </li>
                             </ul>
                         </div>
@@ -93,16 +63,18 @@
                             <span>Categories: </span>
                             <ul class="d-flex">
                                 <li>
-                                    <a href="#">Bag</a>
+                                    <a href="#">{{$product->category}}</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
                             <span>Tags: </span>
                             <ul class="d-flex">
+                                @foreach ($product->tags as $product)
                                 <li>
-                                    <a href="#">Best Buy</a>
+                                    <a href="#">{{$product}}</a>
                                 </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

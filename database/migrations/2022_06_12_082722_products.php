@@ -14,15 +14,17 @@ class Products extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
+
+            $table->bigIncrements('id');
             $table->text('image')->nullable($value = true);
             $table->text('imagehover')->nullable($value = true);
-            $table->text('gallery')->nullable($value = true);
             $table->string('name');
-            $table->double('price' 8, 2);
+            $table->string('price');
             $table->enum('category',['Bag','Gadget','Trophy','Towel','Packaging']);
             $table->string('sku')->unique();
-            $table->enum('tags',['Best Buy','Interim'])->nullable($value = true);
+            $table->string('tags')->nullable($value = true);
             $table->text('description')->nullable($value = true);
+            $table->timestamps(0);
         });
     }
 
@@ -34,6 +36,7 @@ class Products extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('products');
+
     }
 }

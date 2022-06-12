@@ -39,7 +39,7 @@
                         <div class="col-lg-3 col">
 
                             <div class="header-logo">
-                                <a href="/index"><img src="/images/logo/logo.png" alt="Site Logo" /></a>
+                                <a href="/home"><img src="/images/logo/logo.png" alt="Site Logo" /></a>
                             </div>
 
                         </div>

@@ -21,3 +21,7 @@ Route::get('/', function () {
 
 Route::get('/home', [productController::class, 'index']);
 Route::post('/delete', [productController::class, 'destroy']);
+Route::get('/createProduct', [productController::class, 'create']);
+Route::post('/store', [productController::class, 'store']); 
+Route::get('//showProduct/{product}', [productController::class, 'show']); 
+

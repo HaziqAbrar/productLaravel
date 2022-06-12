@@ -46,7 +46,7 @@
                                                     <!-- Single Product -->
                                                     <div class="product">
                                                         <div class="thumb">
-                                                            <a href="/showProduct" class="image">
+                                                            <a href="/showProduct/{{$product->id}}" class="image">
                                                                 <img src="{{ $product->image }}" alt="Product" />
                                                                 <img class="hover-image" src="{{ $product->imagehover }}" alt="Product" />
                                                             </a>
@@ -55,7 +55,7 @@
                                                             <span class="category"><a href="/showProduc">{{ $product->category }}</a></span>
                                                             <h5 class="title"><a href="/showProduct">{{ $product->name }}</a></h5>
                                                             <span class="price">
-                                                                <span class="new">From {{ $product->price }}</span>
+                                                                <span class="new">From RM {{ $product->price }}</span>
                                                             </span>
                                                         </div>
                                                         <div class="actions">
