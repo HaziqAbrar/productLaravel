@@ -60,7 +60,13 @@
                                                         </div>
                                                         <div class="actions">
                                                             <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                            <button class="action quickview" ><i class="fa fa-edit"></i></button>
+                                                            
+                                                            <form class="action quickview" method="post" action="/edit/{{$product->id}}">
+                                                                {{csrf_field()}}
+                                                                <input type="hidden" value="{{ $product->sku }}" name="sku"></input>
+                                                                <button type="submit" class="action"><i class="fa fa-edit"></i></button>
+                                                            </form>
+                                                            <!-- <button class="action quickview" ><i class="fa fa-edit"></i></button> -->
 
                                                             <form class="action quickview" method="post" action="/delete">
                                                                 {{csrf_field()}}

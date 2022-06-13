@@ -88,6 +88,7 @@ class productController extends Controller
     public function edit(Product $product)
     {
         //
+        return view('product.updateProduct', compact('product'));
     }
 
     /**
@@ -100,6 +101,19 @@ class productController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        // dd($product);
+        Product::where('id', $product->id)
+            ->update([
+                'image' => $request->image,
+                'imagehover' => $request->imagehover,
+                'name' => $request->name,
+                'price' => $request->price,
+                'category' => $request->category,
+                'sku' => $request->sku,
+                'description' => $request->description
+            ]);
+
+        return redirect('/home')->with('status', 'Product updated!');
     }
 
     /**

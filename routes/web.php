@@ -21,7 +21,9 @@ Route::get('/', function () {
 
 Route::get('/home', [productController::class, 'index']);
 Route::post('/delete', [productController::class, 'destroy']);
+Route::post('/edit/{product}', [productController::class, 'edit']);
+Route::patch('/update/{product}', [productController::class, 'update']);
 Route::get('/createProduct', [productController::class, 'create']);
 Route::post('/store', [productController::class, 'store']); 
-Route::get('//showProduct/{product}', [productController::class, 'show']); 
+Route::get('/showProduct/{product}', [productController::class, 'show']); 
 
